@@ -1,6 +1,6 @@
 # Ratesnap
 
-A simple and intuitive currency converter web application built with vanilla JavaScript, HTML, and CSS.
+A simple and intuitive currency converter web application built with vanilla JavaScript, HTML, Bootstrap and CSS.
 
 ## 📋 Features
 
@@ -29,7 +29,7 @@ A simple and intuitive currency converter web application built with vanilla Jav
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yashmamidwar04/CURRENCY-CONVERTOR.git
+   git clone https://github.com/yashmamidwar04/ratesnap.git
    ```
 
 2. **Navigate to the project directory:**
@@ -41,7 +41,7 @@ A simple and intuitive currency converter web application built with vanilla Jav
 
 ## 📍 Project Link
 
-**Repository:** [https://github.com/yashmamidwar04/CURRENCY-CONVERTOR](https://github.com/yashmamidwar04/CURRENCY-CONVERTOR)
+**Repository:** [https://github.com/yashmamidwar04/ratesnap](https://github.com/yashmamidwar04/ratesnap)
 
 ## 📄 License
 
