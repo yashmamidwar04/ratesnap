@@ -1,4 +1,4 @@
-# CURRENCY-CONVERTOR
+# Ratesnap
 
 A simple and intuitive currency converter web application built with vanilla JavaScript, HTML, and CSS.
 
