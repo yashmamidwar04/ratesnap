@@ -1,43 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Currency Converter</title>
-        <meta name="description" content="A simple currency converter built with JavaScript">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
+        <meta name="description" content="Convert between currencies with current exchange rates.">
+        <meta name="theme-color" content="#f4f7fb">
+        <title>Currency Converter</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+        <script src="codes.js" defer></script>
+        <script src="app.js" defer></script>
     </head>
     <body>
-        <div class="container">
-            <h2>Currency Converter</h2>
-            <form>
-                <div class="amount">
-                    <p>Enter Amount</p>
-                    <input id="amount" value="100" type="text" />  <!-- added id="amount" -->
-                </div>
-                <div class="dropdown">
-                    <div class="from">
-                        <p>From</p>
-                        <div class="select-container">
-                            <img src="https://flagsapi.com/US/shiny/64.png" alt="From flag">
-                            <select name="from"></select>
-                        </div>
-                    </div>
-                    <div class="to">
-                        <p>To</p>
-                        <div class="select-container">
-                            <img src="https://flagsapi.com/IN/shiny/64.png" alt="To flag">
-                            <select name="to"></select>
-                        </div>
-                    </div>
-                </div>
-                <div class="msg"></div>  <!-- cleared hardcoded text, JS will populate -->
-                <button id="btn">Get Exchange Rate</button>  <!-- added id="btn" -->
-            </form>
-        </div>
+        <main class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
+            <section class="converter-card card border-0 shadow-lg w-100" aria-labelledby="page-title">
+                <div class="card-body p-4 p-md-5">
+                    <header class="text-center mb-4">
+                        <div class="brand-mark mx-auto mb-3" aria-hidden="true">↗</div>
+                        <p class="eyebrow text-uppercase fw-semibold mb-2">Simple · Fast · Reliable</p>
+                        <h1 id="page-title" class="h2 fw-bold mb-2">Currency converter</h1>
+                        <p class="text-secondary mb-0">Convert currencies using the latest available exchange rates.</p>
+                    </header>
 
-        <script src="codes.js"></script>
-        <script src="app.js"></script>
+                    <form id="converter-form">
+                        <div class="mb-4">
+                            <label for="amount" class="form-label fw-semibold">Amount</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text amount-prefix" aria-hidden="true">#</span>
+                                <input class="form-control" id="amount" name="amount" type="number" min="0.01" step="any" value="1" placeholder="Enter an amount" required inputmode="decimal">
+                            </div>
+                        </div>
+
+                        <div class="row g-3 align-items-end mb-4">
+                            <div class="col-12 col-sm">
+                                <label for="from-currency" class="form-label fw-semibold">From</label>
+                                <div class="currency-select input-group">
+                                    <span class="input-group-text bg-white">
+                                        <img src="https://flagsapi.com/US/shiny/64.png" alt="" class="currency-flag" id="from-flag">
+                                    </span>
+                                    <select class="form-select form-select-lg" id="from-currency" name="from" aria-label="Source currency"></select>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-auto text-center">
+                                <button class="btn btn-light swap-button" id="swap-currencies" type="button" aria-label="Swap currencies" title="Swap currencies">
+                                    <span aria-hidden="true">⇄</span>
+                                </button>
+                            </div>
+
+                            <div class="col-12 col-sm">
+                                <label for="to-currency" class="form-label fw-semibold">To</label>
+                                <div class="currency-select input-group">
+                                    <span class="input-group-text bg-white">
+                                        <img src="https://flagsapi.com/IN/shiny/64.png" alt="" class="currency-flag" id="to-flag">
+                                    </span>
+                                    <select class="form-select form-select-lg" id="to-currency" name="to" aria-label="Target currency"></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="result" class="alert result-panel mb-4 d-none" role="status" aria-live="polite"></div>
+
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary btn-lg" id="convert-button" type="submit">
+                                <span class="button-label">Convert currency</span>
+                            </button>
+                            <button class="btn btn-outline-secondary" id="rate-button" type="button">View exchange rate</button>
+                        </div>
+                    </form>
+
+                    <p class="text-center text-secondary small mt-4 mb-0">Rates are provided by ExchangeRate-API.</p>
+                </div>
+            </section>
+        </main>
     </body>
 </html>
